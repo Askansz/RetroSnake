@@ -25,7 +25,6 @@ A modern take on the classic Nokia Snake game, built with pure JavaScript and st
 - ⬇️ Down Arrow: Move Down
 - ⬅️ Left Arrow: Move Left
 - ➡️ Right Arrow: Move Right
-- Enter: Start/Restart Game
 
 ## Technologies Used
 
