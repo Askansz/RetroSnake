@@ -108,6 +108,13 @@
     </div>
 
     <script>
+        // Prevent arrow keys from scrolling
+        window.addEventListener("keydown", function(e) {
+            if([32, 37, 38, 39, 40].indexOf(e.keyCode) > -1) {
+                e.preventDefault();
+            }
+        });
+
         const canvas = document.getElementById('gameCanvas');
         const ctx = canvas.getContext('2d');
         const scoreElement = document.getElementById('score');
@@ -170,6 +177,10 @@
             const RIGHT_KEY = 39;
             const UP_KEY = 38;
             const DOWN_KEY = 40;
+            const W_KEY = 87;
+            const A_KEY = 65;
+            const S_KEY = 83;
+            const D_KEY = 68;
 
             const keyPressed = event.keyCode;
             const goingUp = dy === -1;
@@ -177,19 +188,19 @@
             const goingRight = dx === 1;
             const goingLeft = dx === -1;
 
-            if (keyPressed === LEFT_KEY && !goingRight) {
+            if ((keyPressed === LEFT_KEY || keyPressed === A_KEY) && !goingRight) {
                 dx = -1;
                 dy = 0;
             }
-            if (keyPressed === UP_KEY && !goingDown) {
+            if ((keyPressed === UP_KEY || keyPressed === W_KEY) && !goingDown) {
                 dx = 0;
                 dy = -1;
             }
-            if (keyPressed === RIGHT_KEY && !goingLeft) {
+            if ((keyPressed === RIGHT_KEY || keyPressed === D_KEY) && !goingLeft) {
                 dx = 1;
                 dy = 0;
             }
-            if (keyPressed === DOWN_KEY && !goingUp) {
+            if ((keyPressed === DOWN_KEY || keyPressed === S_KEY) && !goingUp) {
                 dx = 0;
                 dy = 1;
             }
